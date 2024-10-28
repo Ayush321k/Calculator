@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Calculator</title>
+    <link rel="stylesheet" href="./normal.css">
+    <style>
+        .abc{
+            color: aqua;
+        }
+        .afternoon{
+            color: coral;
+        }
+        .evening{
+            color: chartreuse;
+            background-color: rgb(61, 61, 100);
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><button class="normal">Normalcalculator.com</button></li>
+            <li><button class="normal" id="good" ><span id="pm"></span>,<span id="user">username</span></button></li>
+        </ul>
+    </nav>
+    <div class="main">
+        <div class="display"><input type="text" name="result" id="result"  value="0"></div>
+        <div class="btn">
+            <button type="button"id="seven" class="btn num">7</button>
+            <button type="button" class="btn num" id="eight">8</button>
+            <button type="button" class="btn num">9</button>
+            <button type="button" class="Del" id="del">Del</button>
+            <button type="button" class="btn num">4</button>
+            <button type="button" class="btn num">5</button>
+            <button type="button" class="btn num">6</button>
+            <button type="button" style="background-color:green; color:white;" class="num ">+</button>
+            <button type="button" class="num">1</button>
+            <button type="button" class="num">2</button>
+            <button type="button" class="num">3</button>
+            <button type="button" style="background-color: green; color: white;" class="num">-</button>
+            <button type="button" class="num">.</button>
+            <button type="button" class="num">0</button>
+            <button type="button" class="num" >/</button>
+            <button type="button" style="background-color: green; color: white;" class="num">*</button>
+            <button type="button" class="Reset" id="res">Reset</button>
+            <button type="button" class="Reset" id="equal">=</button>
+        </div>
+        
+    </div>
+    <h1>Made with by <span>Ayush Yadav</span></h1>
+    <script>
+        const a = localStorage.getItem("name")
+        document.getElementById("user").innerText = a;
+// dispaly set to time
+        var c = new Date();
+        console.log(c)
+        var hour = c.getHours();
+        var e =document.getElementById("pm")
+        console.log(hour);
+        if(hour<12){
+            e.innerText ="Good Morning"
+        }else if(hour<18){
+            e.innerText = "Good Afternoon"
+
+        }else{
+            e.innerText ="Good evening" 
+        }
+
+        var allNum = document.querySelectorAll(".num");
+        for(let i = 0; i < allNum.length; i++){
+            allNum[i].addEventListener("click", display);
+        }
+        const sol = document.getElementById("equal");
+        sol.addEventListener("click", solve);
+        function solve(){
+            let x = document.getElementById("result").value;
+            let y = eval(x);
+            console.log(y)
+            document.getElementById("result").value = y;
+        }
+        var res = document.getElementById("res");
+        res.addEventListener("click",()=>{
+            document.getElementById("result").value = " ";
+        })
+        var del = document.getElementById("del");
+        del.addEventListener("click",()=>{
+            document.getElementById("result").value = "";
+        })
+
+        function display(val){
+            document.getElementById("result").value += this.innerText;
+        }
+    </script>
+</body>
+</html>
