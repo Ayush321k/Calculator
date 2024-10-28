@@ -26,8 +26,8 @@ li{
 }
 .main{
     border: 5px solid white;
-    height: 70vh;
-    width: 26vw;
+    height: 100vh;
+    width: 100vw;
     margin: auto;
     margin-top: 3%;
     border-radius: 25px;
